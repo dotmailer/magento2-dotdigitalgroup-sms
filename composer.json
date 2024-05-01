@@ -1,0 +1,20 @@
+{
+    "name": "hyva-themes/magento2-dotdigitalgroup-sms",
+    "description": "Hyvä Themes Compatibility module for Dotdigitalgroup_Sms",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "require": {
+        "magento/framework": "*",
+        "hyva-themes/magento2-compat-module-fallback": "*",
+        "dotdigital/dotdigital-magento2-extension-sms": "^2.2.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "src/registration.php"
+        ],
+        "psr-4": {
+            "Hyva\\DotdigitalgroupSms\\": "src/"
+        }
+    }
+}
