@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var $escaper \Magento\Framework\Escaper
+ */
+?>
+<form id="connector-newsletter-form-validate"
+      class="form form-newsletter-manage dd-account-subscriptions"
+      method="post"
+      action="<?= $escaper->escapeHtml($block->getUrl('connector/customer/newsletter')) ?>"
+      x-data="hyva.formValidation($el)"
+      @submit="onSubmit">
+    <?= $block->getBlockHtml('formkey') ?>
+    <?= $block->getChildHtml() ?>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="Save" class="action save primary">
+                <span>Save</span>
+            </button>
+        </div>
+    </div>
+</form>
+

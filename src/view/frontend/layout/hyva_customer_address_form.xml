@@ -1,0 +1,15 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <update handle="hyva_form_validation"/>
+    <body>
+        <referenceContainer name="main">
+            <block ifconfig="transactional_sms/sms_settings/phone_number_validation"
+                   template="Hyva_DotdigitalgroupSms::customer/js-address.phtml"
+                   name="international.telephone.input">
+                <arguments>
+                    <argument name="telephoneInputConfig" xsi:type="object">Dotdigitalgroup\Sms\ViewModel\TelephoneInputConfig</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

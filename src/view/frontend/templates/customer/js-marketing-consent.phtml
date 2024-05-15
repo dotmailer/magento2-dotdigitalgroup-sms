@@ -1,0 +1,39 @@
+<?php
+
+declare(strict_types=1);
+
+use Dotdigitalgroup\Sms\ViewModel\Customer\Account\MarketingConsent;
+use Dotdigitalgroup\Sms\ViewModel\TelephoneInputConfig;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/**
+ * @var Template $block
+ * @var TelephoneInputConfig $telephoneInputConfig
+ * @var MarketingConsent $consentConfig
+ * @var Escaper $escaper
+ */
+$telephoneInputConfig = $block->getData('telephoneInputConfig');
+$consentConfig = $block->getData('consentConfig');
+?>
+<?php if ($consentConfig->isPhoneNumberValidationEnabled()) { ?>
+<script type="module">
+    import '<?= $escaper->escapeJs($block->getViewFileUrl('Dotdigitalgroup_Sms::js/intlTelInput.js')) ?>';
+    import {
+        validationRule,
+        intlInput,
+        includeStyle
+    } from '<?= $escaper->escapeJs($block->getViewFileUrl('Hyva_DotdigitalgroupSms::js/intl-input-validation.js')) ?>';
+    window.addEventListener('alpine:init', () => hyva.formValidation.addRule(
+        'validate-phone-number-with-checkbox',
+        validationRule
+    ));
+    window.addEventListener('alpine:initialized', () => {
+        includeStyle('<?= $escaper->escapeJs($block->getViewFileUrl('Dotdigitalgroup_Sms::css/hyva.css')) ?>');
+        intlInput(
+            "input[name='mobile_number']",
+            JSON.parse("<?= $escaper->escapeJs($telephoneInputConfig->getConfig()); ?>")
+        );
+    });
+    </script>
+<?php } ?>
