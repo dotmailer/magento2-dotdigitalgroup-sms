@@ -36,6 +36,13 @@ export const intlInput = function (selector, config) {
     document
         .querySelectorAll(selector)
         .forEach(element=> {
+            element.addEventListener('blur', (event) => {
+                const intlTelInput = window.intlTelInputGlobals.getInstance(element);
+                const formattedNumber = intlTelInput.getNumber();
+                if (formattedNumber) {
+                    intlTelInput.setNumber(formattedNumber);
+                }
+            });
             window.intlTelInput(element, config)
             const validationDataset = element.dataset.validate;
             if (validationDataset) {
