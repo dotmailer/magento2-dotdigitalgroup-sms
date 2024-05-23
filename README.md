@@ -1,4 +1,3 @@
-
 # magento2-dotdigitalgroup-sms
 Hyvä Themes Compatibility module for Dotdigitalgroup_Sms
 
