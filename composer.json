@@ -6,7 +6,7 @@
     "require": {
         "magento/framework": "*",
         "hyva-themes/magento2-compat-module-fallback": "*",
-        "dotdigital/dotdigital-magento2-extension-sms": "^2.2.1"
+        "dotdigital/dotdigital-magento2-extension-sms": "^2.3.0"
     },
     "license": "MIT",
     "autoload": {
