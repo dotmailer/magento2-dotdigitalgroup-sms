@@ -1,0 +1,81 @@
+<script>
+    /**
+     * A helper class to observe and update values for subscribers.
+     */
+    class ObservableValue {
+        /**
+         * @param {*} initialValue
+         */
+        constructor(initialValue) {
+            this._value = initialValue;
+            this._listeners = [];
+        }
+
+        /**
+         * @returns {*} the current value
+         */
+        get value() {
+            return this._value;
+        }
+
+        /**
+         * @param {*} newValue
+         */
+        set value(newValue) {
+            this._value = newValue;
+            this._notifyListeners();
+        }
+
+        /**
+         * Notify all listeners of updates to the value.
+         */
+        _notifyListeners() {
+            this._listeners.forEach(listener => listener(this._value));
+        }
+
+        /**
+         * Add a listener to be notified when the value changes.
+         * @param {Function} listener
+         * @returns {Function} A function to unsubscribe the listener.
+         */
+        subscribe(listener) {
+            this._listeners.push(listener);
+            return () => {
+                this._listeners = this._listeners.filter(l => l !== listener);
+            };
+        }
+    }
+
+    /**
+     * Initialize the subscription form validation and SMS subscription checkbox handling.
+     *
+     * @param {HTMLFormElement} form - The form element to be validated.
+     * @returns {Object} - Returns an object with the form validation methods and properties.
+     */
+    function initDotdigitalSubscriptionForm(form) {
+        const phoneElement = form.elements['mobile_number']
+        const checkboxElement = form.elements['is_sms_subscribed']
+        const checked$ = new ObservableValue()
+
+        return Object.assign({}, hyva.formValidation(form), {
+            init() {
+
+                checked$.subscribe(checked => {
+                    if(checked) {
+                        phoneElement.removeAttribute('disabled')
+                        phoneElement.closest('.telephone').style.removeProperty('display')
+                        document.getElementById('dd_sms_consent_text').style.removeProperty('display')
+                    }
+                    if(!checked) {
+                        phoneElement.closest('.telephone').style.display = 'none';
+                        phoneElement.setAttribute('disabled','disabled')
+                        document.getElementById('dd_sms_consent_text').style.display = 'none';
+                    }
+                });
+
+                checkboxElement.addEventListener('change', (event) => checked$.value = event.target.checked);
+                checked$.value = checkboxElement.checked
+            },
+        })
+    }
+</script>

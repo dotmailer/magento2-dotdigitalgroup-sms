@@ -8,7 +8,7 @@
       class="form form-newsletter-manage dd-account-subscriptions"
       method="post"
       action="<?= $escaper->escapeHtml($block->getUrl('connector/customer/newsletter')) ?>"
-      x-data="hyva.formValidation($el)"
+      x-data="initDotdigitalSubscriptionForm($el)"
       @submit="onSubmit">
     <?= $block->getBlockHtml('formkey') ?>
     <?= $block->getChildHtml() ?>
@@ -20,4 +20,3 @@
         </div>
     </div>
 </form>
-

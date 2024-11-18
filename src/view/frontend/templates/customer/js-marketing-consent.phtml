@@ -16,7 +16,7 @@ use Magento\Framework\View\Element\Template;
 $telephoneInputConfig = $block->getData('telephoneInputConfig');
 $consentConfig = $block->getData('consentConfig');
 ?>
-<?php if ($consentConfig->isPhoneNumberValidationEnabled()) { ?>
+<?php if (filter_var($consentConfig->isPhoneNumberValidationEnabled(), FILTER_VALIDATE_BOOLEAN)): ?>
 <script type="module">
     import '<?= $escaper->escapeJs($block->getViewFileUrl('Dotdigitalgroup_Sms::js/intlTelInput.js')) ?>';
     import {
@@ -32,8 +32,9 @@ $consentConfig = $block->getData('consentConfig');
         includeStyle('<?= $escaper->escapeJs($block->getViewFileUrl('Dotdigitalgroup_Sms::css/hyva.css')) ?>');
         intlInput(
             "input[name='mobile_number']",
-            JSON.parse("<?= $escaper->escapeJs($telephoneInputConfig->getConfig()); ?>")
+            JSON.parse("<?= $escaper->escapeJs($telephoneInputConfig->getConfig()); ?>"),
+            ["required"]
         );
     });
     </script>
-<?php } ?>
+<?php endif; ?>

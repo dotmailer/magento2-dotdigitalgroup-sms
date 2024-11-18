@@ -9,5 +9,10 @@
                 <argument name="template" xsi:type="string">Hyva_DotdigitalgroupSms::forms/account-subscriptions.phtml</argument>
             </action>
         </referenceBlock>
+        <referenceContainer name="after.body.start">
+            <block template="Hyva_DotdigitalgroupSms::forms/js-account-subscription.phtml"
+                   name="dotdigital.account.subscription.form">
+            </block>
+        </referenceContainer>
     </body>
 </page>

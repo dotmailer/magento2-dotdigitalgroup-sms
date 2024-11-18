@@ -28,7 +28,8 @@ $telephoneInputConfig = $block->getData('telephoneInputConfig');
         includeStyle('<?= $escaper->escapeJs($block->getViewFileUrl('Dotdigitalgroup_Sms::css/hyva.css')) ?>');
         intlInput(
             "input[name='telephone']",
-            JSON.parse("<?= $escaper->escapeJs($telephoneInputConfig->getConfig()); ?>")
+            JSON.parse("<?= $escaper->escapeJs($telephoneInputConfig->getConfig()); ?>"),
+            <?= $telephoneInputConfig->isRequired() ? $escaper->escapeHtmlAttr(json_encode(["required"])) : 'false'; ?>
         );
     });
 </script>
