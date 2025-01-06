@@ -2,7 +2,7 @@
     "name": "dotdigital/magento2-dotdigitalgroup-sms",
     "description": "Hyvä Themes Compatibility module for Dotdigitalgroup_Sms",
     "type": "magento2-module",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "require": {
         "magento/framework": "*",
         "hyva-themes/magento2-compat-module-fallback": "*",

@@ -14,5 +14,8 @@
                    name="dotdigital.account.subscription.form">
             </block>
         </referenceContainer>
+        <referenceBlock name="require-alpine-v3">
+            <block name="Hyva_DotdigitalgroupSms"/>
+        </referenceBlock>
     </body>
 </page>

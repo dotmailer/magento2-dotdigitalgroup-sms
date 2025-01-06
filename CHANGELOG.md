@@ -1,3 +1,8 @@
+# 1.1.1
+
+### Improvements
+- Merchants with themes that use Alpine.js V2 will now see a notice in the console indicating the V3 requirement.
+
 # 1.1.0
 
 ### What's new
