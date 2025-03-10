@@ -1,3 +1,7 @@
+# 1.2.0
+### Improvements
+- Merchants can now see the currently installed version of the module at **Reports > Dotdigital > Dashboard**.
+ 
 # 1.1.1
 
 ### Improvements
