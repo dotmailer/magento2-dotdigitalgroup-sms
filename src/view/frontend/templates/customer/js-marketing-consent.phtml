@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Dotdigitalgroup\Sms\ViewModel\Customer\Account\MarketingConsent;
 use Dotdigitalgroup\Sms\ViewModel\TelephoneInputConfig;
+use Hyva\Theme\ViewModel\HyvaCsp;
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
 
@@ -12,6 +13,7 @@ use Magento\Framework\View\Element\Template;
  * @var TelephoneInputConfig $telephoneInputConfig
  * @var MarketingConsent $consentConfig
  * @var Escaper $escaper
+ * @var HyvaCsp $hyvaCsp
  */
 $telephoneInputConfig = $block->getData('telephoneInputConfig');
 $consentConfig = $block->getData('consentConfig');
@@ -37,4 +39,5 @@ $consentConfig = $block->getData('consentConfig');
         );
     });
     </script>
+    <?php $hyvaCsp->registerInlineScript() ?>
 <?php endif; ?>
