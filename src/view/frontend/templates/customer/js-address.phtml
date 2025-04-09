@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Dotdigitalgroup\Sms\ViewModel\TelephoneInputConfig;
+use Hyva\Theme\ViewModel\HyvaCsp;
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
 
@@ -10,6 +11,7 @@ use Magento\Framework\View\Element\Template;
  * @var Template $block
  * @var TelephoneInputConfig $telephoneInputConfig
  * @var Escaper $escaper
+ * @var HyvaCsp $hyvaCsp
  */
 $telephoneInputConfig = $block->getData('telephoneInputConfig');
 ?>
@@ -26,10 +28,20 @@ $telephoneInputConfig = $block->getData('telephoneInputConfig');
     ));
     window.addEventListener('alpine:initialized', () => {
         includeStyle('<?= $escaper->escapeJs($block->getViewFileUrl('Dotdigitalgroup_Sms::css/hyva.css')) ?>');
+        <?php if ($telephoneInputConfig->isRequired()) { ?>
         intlInput(
             "input[name='telephone']",
             JSON.parse("<?= $escaper->escapeJs($telephoneInputConfig->getConfig()); ?>"),
-            <?= $telephoneInputConfig->isRequired() ? $escaper->escapeHtmlAttr(json_encode(["required"])) : 'false'; ?>
-        );
+            ["required"]
+        )
+        <?php } else { ?>
+        intlInput(
+            "input[name='telephone']",
+            JSON.parse("<?= $escaper->escapeJs($telephoneInputConfig->getConfig()); ?>"),
+            [],
+            false
+        )
+        <?php } ?>
     });
 </script>
+<?php $hyvaCsp->registerInlineScript() ?>
