@@ -1,4 +1,13 @@
+# 1.2.1
+
+### Improvements
+- We added `registerInlineScript` to our templates for strict CSP compatibility.
+
+### Bug fixes
+- We fixed handling of telephone input validation rules for addresses in the customer account.
+
 # 1.2.0
+
 ### Improvements
 - Merchants can now see the currently installed version of the module at **Reports > Dotdigital > Dashboard**.
  
