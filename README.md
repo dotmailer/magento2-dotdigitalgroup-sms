@@ -1,4 +1,4 @@
-# magento2-dotdigitalgroup-sms
+# magento2-hyva-dotdigitalgroup-sms
 Hyvä Themes Compatibility module for Dotdigitalgroup_Sms
 
 ## Requirements
@@ -8,7 +8,7 @@ Hyvä Themes Compatibility module for Dotdigitalgroup_Sms
 
 1. Install via composer
     ```
-    composer require dotdigital/magento2-dotdigitalgroup-sms
+    composer require dotdigital/magento2-hyva-dotdigitalgroup-sms
     ```
 2. Enable module
     ```

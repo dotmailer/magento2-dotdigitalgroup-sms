@@ -20,7 +20,7 @@ class ModulePlugin
     {
         $modules[] = [
             'name' => self::MODULE_DESCRIPTION,
-            'version' => InstalledVersions::getPrettyVersion('dotdigital/magento2-dotdigitalgroup-sms')
+            'version' => InstalledVersions::getPrettyVersion('dotdigital/magento2-hyva-dotdigitalgroup-sms')
         ];
         return [
             $modules

@@ -1,3 +1,8 @@
+# 1.3.0
+
+### What's new
+- This module has been renamed to `dotdigital/magento2-hyva-dotdigitalgroup-sms` to match the naming convention of our other Hyvä modules.
+
 # 1.2.1
 
 ### Improvements
